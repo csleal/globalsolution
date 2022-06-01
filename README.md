@@ -12,7 +12,8 @@ Entregável da disciplina de DIGITAL BUSINESS ENABLEMENT.
 
 ## Descrição do Projeto
 
-Avaliação de DBE
+### Avaliação de DBE
+
 Essa avaliação consiste na criação de uma aplicação web para Gestão de Portaria.
 Todas as funcionalidades devem ser desenvolvidas utilizando as tecnologias
 estudadas durante as aulas: JSF, CDI, Primefaces, JPA, PrettyFaces.
@@ -25,9 +26,15 @@ visitantes cadastrados.
 3. Upload: (2,0 pontos) no formulário de cadastro de visitantes, permitir que o
 usuário faça upload de uma foto. Essa foto deve ser exibida na consulta de
 visitantes.
-Instruções adicionais
+
+### Instruções adicionais
+
 A persistência dos dados pode ser feita em banco de dados H2 ou no banco Oracle da
 FIAP.
 Além da funcionalidade, serão avaliadas as boas práticas de programação
 apresentadas em sala de aula.
 A entrega deve ser realizada via link de repositório.
+
+# Imagem do Projeto
+
+<img src="/imagem.png">
