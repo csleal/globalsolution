@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/_template.xhtml">
+	<ui:define name="content">
+		<p:messages>
+			<p:autoUpdate />
+		</p:messages>
+
+		<h:form enctype="multipart/form-data">
+			<p:card style="width: 25em; margin: 1em auto">
+				<f:facet name="title">New Visitor</f:facet>
+				<div class="ui-fluid">
+					<!-- Campo do nome do visitante -->
+					<div class="p-field">
+						<label for="name">Visitor Name</label>
+						<p:inputText 
+						value="#{visitorBean.visitor.name}" 
+						id="name" 
+						type="text"
+						required="true" 
+						requiredMessage="O Nome é obrigatório">
+							<f:ajax event="blur" render="msg" />
+						</p:inputText>
+					</div>
+					<!-- Campo da Data de Nascimento -->
+					<div class="p-field p-col-12 p-md-4">
+						<p:outputLabel for="date" value="Birth Date" />
+						<p:inputMask 
+						id="date" 
+						value="#{visitorBean.visitor.birthDate}" 
+						mask="99/99/9999"
+						required="true"
+						requiredMessage="A data de nascimento é obrigatória">
+							<f:ajax event="blur" render="msg"/>
+						</p:inputMask>
+					</div>
+					<!-- Campo da Data de Cadastro -->
+					<div class="p-field p-col-12 p-md-4">
+						<p:outputLabel for="date" value="Data de Cadastro" />
+						<p:inputMask 
+						id="date2" 
+						value="#{visitorBean.visitor.registerDate}"
+						mask="99/99/9999" 
+						required="true"
+						requiredMessage="A data de cadastro é obrigatória">
+							<f:ajax event="blur" render="msg" />
+						</p:inputMask>
+					</div>
+					<!-- Campo CPF  -->
+					<div class="p-field p-col-12 p-md-4">
+						<p:outputLabel for="ssn" value="CPF" />
+						<p:inputMask 
+						id="ssn" 
+						value="#{visitorBean.visitor.cpf}" 
+						mask="999.999.999-99"
+						validateMask="true"
+						required="true"
+						requiredMessage="O CPF é obrigatório">
+							<f:ajax event="blur" render="msg" />
+						</p:inputMask>
+					</div>
+					<!-- Campo RG  -->
+					<div class="p-field p-col-12 p-md-4">
+						<p:outputLabel for="ssn" value="RG" />
+						<p:inputMask 
+						id="ssnr" 
+						value="#{visitorBean.visitor.rg}" 
+						mask="99.999.999-*"
+						validateMask="true"
+						required="true"
+						requiredMessage="O RG é obrigatório">
+							<f:ajax event="blur" render="msg" />
+						</p:inputMask>
+					</div>
+					<!-- Campo de Upload de foto -->
+					<div>
+						<div class="p-field">
+							<label for="image">Image File: </label>
+							<p:fileUpload 
+							value="#{visitorBean.image}" 
+							id="image" 
+							mode="simple" 
+							skinSimple="true" 
+							required="true" 
+							requiredMessage="A imagem é obrigatória"/>
+						</div>
+					</div>
+				</div>
+				<f:facet name="footer">
+					<p:commandButton action="#{visitorBean.save()}" icon="pi pi-save"
+						value="Save" />
+					<p:commandButton icon="pi pi-times" value="Cancel"
+						styleClass="ui-button-secondary" style="margin-left: .5em" />
+				</f:facet>
+			</p:card>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
